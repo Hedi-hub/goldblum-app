@@ -1,11 +1,10 @@
-package com.example.goldblumapp;
+package com.example.goldblumapp.entities;
 
 import jakarta.persistence.*;
 
-import java.util.Objects;
-
 @Entity
 @Table(name = "candidate")
+
 public class Candidate {
 
     @Id
@@ -18,6 +17,29 @@ public class Candidate {
 
     private String Tel;
     private String office;
+    private String jobTitle;
+    private String officeAddress;
+
+    @ManyToOne
+    @JoinColumn(name="department_id")
+    private Department department;
+
+
+public Candidate(){
+    super();
+}
+
+    public Candidate(String firstName, String lastName, String email, String gender, String tel, String office, String jobTitle, String officeAddress, Department department) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.gender = gender;
+        Tel = tel;
+        this.office = office;
+        this.jobTitle = jobTitle;
+        this.officeAddress = officeAddress;
+        this.department = department;
+    }
 
     public void setId(int id) {
         this.id = id;
@@ -29,6 +51,10 @@ public class Candidate {
 
     public void setFirstName(String firstName) {
         this.firstName = firstName;
+    }
+
+    public String getFirstName() {
+        return firstName;
     }
 
     public String getLastName() {
@@ -71,28 +97,44 @@ public class Candidate {
         Tel = tel;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Candidate candidate = (Candidate) o;
-        return Objects.equals(firstName, candidate.firstName) && Objects.equals(lastName, candidate.lastName) && Objects.equals(email, candidate.email) && Objects.equals(gender, candidate.gender) && Objects.equals(Tel, candidate.Tel) && Objects.equals(office, candidate.office);
+    public void setJobTitle(String jobTitle) {
+        this.jobTitle = jobTitle;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(firstName, lastName, email, gender, Tel, office);
+    public String getJobTitle() {
+        return jobTitle;
+    }
+
+    public String getOfficeAddress() {
+        return officeAddress;
+    }
+
+    public void setOfficeAddress(String officeAddress) {
+        this.officeAddress = officeAddress;
+    }
+
+    public void setDepartment(Department department) {
+        this.department = department;
+    }
+
+    public Department getDepartment() {
+        return department;
     }
 
     @Override
     public String toString() {
         return "Candidate{" +
-                "firstName='" + firstName + '\'' +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", email='" + email + '\'' +
                 ", gender='" + gender + '\'' +
                 ", Tel='" + Tel + '\'' +
                 ", office='" + office + '\'' +
+                ", jobTitle='" + jobTitle + '\'' +
+                ", officeAddress='" + officeAddress + '\'' +
+                ", department=" + department +
                 '}';
     }
+
 }
