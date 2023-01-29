@@ -14,7 +14,7 @@ public class Manager {
     private String firstName;
     private String LastName;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name="department_id", referencedColumnName = "id")
     private Department department;
 

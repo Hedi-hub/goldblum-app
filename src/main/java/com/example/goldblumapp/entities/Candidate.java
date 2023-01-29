@@ -16,7 +16,7 @@ public class Candidate {
     private String gender;
 
     private String Tel;
-    private String office;
+
     private String jobTitle;
     private String officeAddress;
 
@@ -29,13 +29,12 @@ public Candidate(){
     super();
 }
 
-    public Candidate(String firstName, String lastName, String email, String gender, String tel, String office, String jobTitle, String officeAddress, Department department) {
+    public Candidate(String firstName, String lastName, String email, String gender, String tel, String jobTitle, String officeAddress, Department department) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.gender = gender;
-        Tel = tel;
-        this.office = office;
+        this.Tel = tel;
         this.jobTitle = jobTitle;
         this.officeAddress = officeAddress;
         this.department = department;
@@ -81,14 +80,6 @@ public Candidate(){
         this.gender = gender;
     }
 
-    public void setOffice(String office) {
-        this.office = office;
-    }
-
-    public String getOffice() {
-        return office;
-    }
-
     public String getTel() {
         return Tel;
     }
@@ -130,7 +121,6 @@ public Candidate(){
                 ", email='" + email + '\'' +
                 ", gender='" + gender + '\'' +
                 ", Tel='" + Tel + '\'' +
-                ", office='" + office + '\'' +
                 ", jobTitle='" + jobTitle + '\'' +
                 ", officeAddress='" + officeAddress + '\'' +
                 ", department=" + department +
