@@ -19,7 +19,7 @@ public class DepartmentService {
     public void removeDepartment(Department department){
         departmentRepository.delete(department);
     }
-    public List<Department> getAllDeparments(){
+    public List<Department> getAllDepartments(){
         return departmentRepository.findAll();
 
     }
